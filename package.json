@@ -1,0 +1,23 @@
+{
+  "name": "conecta4",
+  "version": "1.0.0",
+  "description": "conecta4 desarrollado en Javascript con IA a través de tensorflow",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DJCrespo/conecta4-js.git"
+  },
+  "author": "Didier Crespo, Juan Gonzalez y Lenin Soberanis",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DJCrespo/conecta4-js/issues"
+  },
+  "homepage": "https://github.com/DJCrespo/conecta4-js#readme",
+  "dependencies": {
+    "uuid": "^8.3.2"
+  }
+}
