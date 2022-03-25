@@ -1,8 +1,6 @@
-import { createRequire } from 'module'
-const require = createRequire(import.meta.url)
-const { MongoClient, ServerApiVersion } = require('mongodb');
+import { MongoClient } from 'mongodb'
 const uri = "mongodb+srv://dev:z2IpdJrKWLGb2miJ@conecta4.v4ocs.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
-const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
+const client = new MongoClient(uri)
 
 async function run() {
     try {
