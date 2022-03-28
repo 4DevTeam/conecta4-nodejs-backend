@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "node index.js",
+    "test-database": "node test/test-database.js",
     "start": "node --experimental-modules --es-module-specifier-resolution=node src/server.js"
   },
   "repository": {
