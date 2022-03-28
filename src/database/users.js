@@ -2,14 +2,14 @@ import client from './index.js'
 
 //Obtener un usuario con su id
 
-export const getUser = async (id) => {
+export const userGet = async (id) => {
     try {
         await client.connect()
         const database = client.db('conecta4')
         const users = database.collection('users')
         const query = { uuid: id }
         const result = await users.findOne(query)
-        console.log('find User: ' + JSON.stringify(result))
+        return result
     } catch (error) {
         console.log(error)
     } finally {
@@ -19,13 +19,13 @@ export const getUser = async (id) => {
 
 //Crear un nuevo usuario
 
-export const createUser = async (user) => {
+export const userPost = async (user) => {
     try {
         await client.connect()
         const database = client.db('conecta4')
         const users = database.collection('users')
         const result = await users.insertOne(user)
-        console.log('Created User: ' + JSON.stringify(result))
+        return result
     } catch (error) {
         console.log(error)
     } finally {
