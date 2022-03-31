@@ -1,4 +1,4 @@
-# Conecta 4 o cuatro en ralla
+#Conecta 4 o cuatro en ralla
 ---
 
 El objetivo de este proyecto es crear un videojuego con inteligencia artificial que compita con el humano y que utilice estrategias dadas previamente.
