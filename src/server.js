@@ -6,7 +6,7 @@ require('dotenv').config()
 import app from './app.js'
 
 //puerto 3300
-const { PORT = 3300 } = process.env
+const { PORT = 3301 } = process.env
 
 //Iniciar server
 app.listen(PORT, () => {

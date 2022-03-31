@@ -8,12 +8,13 @@ export async function createUser(name) {
     const user = {
         id: uuidv4(),
         name: name,
-        score: 0,
         opportunity: 0,
-        type: ''
+        type_piece: '',
+        pieces: {}
     }
 
-    await userPost(user)
+    const res = await userPost(user)
+    return res
 }
 
 export const getUser = (id) => {
