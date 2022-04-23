@@ -12,7 +12,7 @@
     "type": "git",
     "url": "git+https://github.com/DJCrespo/conecta4-js.git"
   },
-  "author": "Didier Crespo, Juan Gonzalez y Lenin Soberanis",
+  "author": "Didier Crespo",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/DJCrespo/conecta4-js/issues"

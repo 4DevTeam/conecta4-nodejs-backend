@@ -8,10 +8,8 @@ import { createUser } from "../conecta4/user.js"
  */
 
 export const postUser = async (req, res) => {
-    // console.log(req)
-    const { name } = req.query
     try {   
-        const result = await createUser(name)
+        const result = await createUser(req.body.name)
         res.send(result)
     } catch (error) {
         console.log(error)

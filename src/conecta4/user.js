@@ -4,16 +4,18 @@ import { userPost } from '../database/users'
 // Objeto para conetener a todos los usuarios registrados en la base de datos
 const users = []
 
-export async function createUser(name) {
+export async function createUser(userData) {
+    console.log(userData)
     const user = {
         id: uuidv4(),
-        name: name,
+        name: userData.name,
         opportunity: 0,
-        type_piece: '',
+        type_piece: userData.type_disc,
         pieces: {}
     }
 
     const res = await userPost(user)
+    console.log(res)
     return res
 }
 

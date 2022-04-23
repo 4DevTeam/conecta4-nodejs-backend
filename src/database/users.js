@@ -25,6 +25,7 @@ export const userPost = async (user) => {
         const database = client.db('conecta4')
         const users = database.collection('users')
         const result = await users.insertOne(user)
+        console.log(`A document was inserted with the _id: ${result.insertedId}`)
         return result
     } catch (error) {
         console.log(error)
