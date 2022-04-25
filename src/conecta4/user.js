@@ -16,7 +16,8 @@ export async function createUser(userData) {
 
     const res = await userPost(user)
     console.log(res)
-    return res
+    console.log('id: ' + res.insertedId)
+    return res.insertedId
 }
 
 export const getUser = (id) => {
