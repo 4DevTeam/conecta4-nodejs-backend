@@ -3,7 +3,7 @@ import { createRequire } from 'module'
 const require = createRequire(import.meta.url)
 const router = require('express').Router()
 
-import { postUser } from '../controllers/contecta4.js'
+import { postUser, getAllUsers } from '../controllers/contecta4.js'
 
 // routes app
 router.get('/', (req, res) => {
@@ -12,5 +12,10 @@ router.get('/', (req, res) => {
 
 //Create user
 router.post('/user', postUser)
+
+//Get Users
+router.get('/user', getAllUsers)
+
+router.put('/user', )
 
 export default router

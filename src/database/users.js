@@ -41,7 +41,7 @@ export const updateUser = async (id, updateData) => {
         await client.connect()
         const database = client.db('conecta4')
         const users = database.collection('users')
-        const query = { uuid: id }
+        const query = { _id: id }
         const result = await users.updateOne(query, updateData)
         console.log('Update User: ' + JSON.stringify(result))
     } catch (error) {
@@ -75,5 +75,14 @@ export const deleteUser = async (id) => {
 //Obtener todos los usuario
 
 export const getAllUsers = async () => {
-    
+    try {
+        await client.connect()
+        const database = client.db('conecta4')
+        const users = database.collection('users').find({})
+        console.log(users)
+    } catch (error) {
+        console.log(error)
+    } finally {
+        await client.close()
+    }
 }

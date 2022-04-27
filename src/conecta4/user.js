@@ -1,8 +1,5 @@
 import { v4 as uuidv4 } from 'uuid'
-import { userPost } from '../database/users'
-
-// Objeto para conetener a todos los usuarios registrados en la base de datos
-const users = []
+import { userPost, getAllUsers, updateUser } from '../database/users'
 
 export async function createUser(userData) {
     console.log(userData)
@@ -10,7 +7,8 @@ export async function createUser(userData) {
         id: uuidv4(),
         name: userData.name,
         opportunity: 0,
-        type_piece: userData.type_disc,
+        score: 0,
+        type_piece: userData.color_disc,
         pieces: {}
     }
 
@@ -25,6 +23,12 @@ export const getUser = (id) => {
     return userFind
 }
 
-export const allUsers = () => {
-    return users
+export async function allUsers() {
+    const res = await getAllUsers()
+    return res
+}
+
+export async function updateUserData(id, data) {
+    const res = await updateUser(id, data)
+    return res
 }
