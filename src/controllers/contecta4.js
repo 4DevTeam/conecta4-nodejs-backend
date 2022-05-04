@@ -1,4 +1,4 @@
-import { createUser, allUsers } from "../conecta4/user.js"
+import { createUser, allUsers, getUserId } from "../conecta4/user.js"
 
 /**
  * @function postUser
@@ -24,25 +24,9 @@ export const postUser = async (req, res) => {
  */
 
  export const getUser = async (req, res) => {
-    const { name } = req.query
+     console.log(req.body.id)
     try {   
-        const result = await createUser(name)
-        res.send(result)
-    } catch (error) {
-        console.log(error)
-    }
-}
-
-/**
- * @function getAllUsers
- * @description Obtiene todos los usuarios de la BD
- * @param {Object} req
- * @param {Object} res
- */
-
-export const getAllUsers = async (req, res) => {
-    try {   
-        const result = await allUsers()
+        const result = await getUserId(req.body.id)
         res.send(result)
     } catch (error) {
         console.log(error)

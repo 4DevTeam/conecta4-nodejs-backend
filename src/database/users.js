@@ -6,9 +6,10 @@ export const userGet = async (id) => {
     try {
         await client.connect()
         const database = client.db('conecta4')
-        const users = database.collection('users')
+        //const users = database.collection('users')
         const query = { uuid: id }
-        const result = await users.findOne(query)
+        const result = await database.collection('users').find(query).toArray()
+        console.log(JSON.stringify(result))
         return result
     } catch (error) {
         console.log(error)
@@ -25,7 +26,6 @@ export const userPost = async (user) => {
         const database = client.db('conecta4')
         const users = database.collection('users')
         const result = await users.insertOne(user)
-        console.log(`A document was inserted with the _id: ${result.insertedId}`)
         return result
     } catch (error) {
         console.log(error)

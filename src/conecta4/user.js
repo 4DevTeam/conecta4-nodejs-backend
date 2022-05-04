@@ -1,26 +1,22 @@
 import { v4 as uuidv4 } from 'uuid'
-import { userPost, getAllUsers, updateUser } from '../database/users'
+import { userPost, getAllUsers, updateUser, userGet } from '../database/users'
 
 export async function createUser(userData) {
     console.log(userData)
     const user = {
-        id: uuidv4(),
+        uuid: uuidv4(),
         name: userData.name,
-        opportunity: 0,
-        score: 0,
-        type_piece: userData.color_disc,
-        pieces: {}
+        wins: userData.wins
     }
 
     const res = await userPost(user)
     console.log(res)
-    console.log('id: ' + res.insertedId)
-    return res.insertedId
+    return user.uuid
 }
 
-export const getUser = (id) => {
-    let userFind = users.find (x => x.id == id)
-    return userFind
+export async function getUserId (id) {
+    const res = await userGet(id)
+    return res
 }
 
 export async function allUsers() {
