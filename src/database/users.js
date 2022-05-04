@@ -41,9 +41,13 @@ export const updateUser = async (id, updateData) => {
         await client.connect()
         const database = client.db('conecta4')
         const users = database.collection('users')
-        const query = { _id: id }
-        const result = await users.updateOne(query, updateData)
-        console.log('Update User: ' + JSON.stringify(result))
+        const query = { uuid: id }
+        const result = await users.updateOne(query, {
+            $set: {
+                wins: updateData
+            }
+        })
+        return result
     } catch (error) {
         console.log(error)
     } finally {
@@ -75,11 +79,26 @@ export const deleteUser = async (id) => {
 //Obtener todos los usuario
 
 export const getAllUsers = async () => {
+    console.log('bandera')
     try {
         await client.connect()
         const database = client.db('conecta4')
-        const users = database.collection('users').find({})
+        const users = await database.collection('users').find({}).toArray()
         console.log(users)
+        return users
+    } catch (error) {
+        console.log(error)
+    } finally {
+        await client.close()
+    }
+}
+
+export const getUsersFilter = async () => {
+    try {
+        await client.connect()
+        const database = client.db('conecta4')
+        const users = await database.collection('users').find({}).sort({ wins: -1 }).limit(3).toArray()
+        return users
     } catch (error) {
         console.log(error)
     } finally {

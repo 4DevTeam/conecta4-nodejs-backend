@@ -1,5 +1,5 @@
 import { v4 as uuidv4 } from 'uuid'
-import { userPost, getAllUsers, updateUser, userGet } from '../database/users'
+import { userPost, getAllUsers, updateUser, userGet, getUsersFilter } from '../database/users'
 
 export async function createUser(userData) {
     console.log(userData)
@@ -21,6 +21,11 @@ export async function getUserId (id) {
 
 export async function allUsers() {
     const res = await getAllUsers()
+    return res
+}
+
+export async function usersFilter() {
+    const res = await getUsersFilter()
     return res
 }
 
