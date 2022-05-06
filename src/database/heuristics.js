@@ -7,7 +7,7 @@ export const createHeuristic = async (data) => {
         await client.connect()
         const database = client.db('conecta4')
         const heu = database.collection('heuristics')
-        const res = await heu.insertOne(heu)
+        const res = await heu.insertOne(data)
         return res
     } catch (error) {
         console.log('error bd')
@@ -40,7 +40,7 @@ export const updateHeuristic = async (data) => {
         const query = { uuid: data.id }
         const result = await users.updateOne(query, {
             $set: {
-                partidas_ganadas: data.particas_ganadas,
+                partidas_ganadas: data.partidas_ganadas,
                 partidas_perdidas: data.partidas_perdidas
             }
         })
