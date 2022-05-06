@@ -6,10 +6,9 @@ export const userGet = async (id) => {
     try {
         await client.connect()
         const database = client.db('conecta4')
-        //const users = database.collection('users')
+        const users = database.collection('users')
         const query = { uuid: id }
-        const result = await database.collection('users').find(query).toArray()
-        console.log(JSON.stringify(result))
+        const result = await users.find(query).toArray()
         return result
     } catch (error) {
         console.log(error)
@@ -79,7 +78,6 @@ export const deleteUser = async (id) => {
 //Obtener todos los usuario
 
 export const getAllUsers = async () => {
-    console.log('bandera')
     try {
         await client.connect()
         const database = client.db('conecta4')
@@ -92,6 +90,8 @@ export const getAllUsers = async () => {
         await client.close()
     }
 }
+
+//Obtener usuarios a traves de un filtro
 
 export const getUsersFilter = async () => {
     try {

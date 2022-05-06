@@ -1,9 +1,10 @@
 //the 'require' is instanced to be able to use it with import
 import { createRequire } from 'module'
+import { postHeuristic } from '../conecta4/heuristics.js'
 const require = createRequire(import.meta.url)
 const router = require('express').Router()
 
-import { postUser, getUser, getAllUsers, filterUsers, updateUser } from '../controllers/contecta4.js'
+import { postUser, getUser, getAllUsers, filterUsers, updateUser, updateHeuristic, createHeuristic, getHeuristic, allHeuristics } from '../controllers/contecta4.js'
 
 // routes app
 router.get('/', (req, res) => {
@@ -24,5 +25,17 @@ router.get('/users', getAllUsers)
 
 //Get users with filter
 router.get('/users-filter', filterUsers)
+
+//Create heuristic
+router.post('/heuristic', createHeuristic)
+
+//Get heuristic
+router.get('/heuristic', getHeuristic)
+
+//Update heuristic
+router.put('/heuristic', updateHeuristic)
+
+//Get all heuristics
+router.get('/heuristics', allHeuristics)
 
 export default router

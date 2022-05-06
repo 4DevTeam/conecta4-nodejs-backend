@@ -1,4 +1,5 @@
 import { createUser, allUsers, getUserId, usersFilter, updateUserData } from "../conecta4/user.js"
+import { postHeuristic, getHeuristicId, updateHeuristicData, getHeuristics } from "../conecta4/heuristics.js"
 
 /**
  * @function postUser
@@ -75,6 +76,70 @@ export const updateUser = async (req, res) => {
  export const getAllUsers = async (req, res) => {
     try {   
         const result = await allUsers()
+        res.send(result)
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+/**
+ * @function postHeuristic
+ * @description Dar de alta a una nueva heuristica a partir de la información proporcionada
+ * @param {Object} req
+ * @param {Object} res
+ */
+
+ export const createHeuristic = async (req, res) => {
+    try {   
+        const result = await postHeuristic(req.body)
+        res.send(result)
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+/**
+ * @function getHeuristic
+ * @description Obtener información de una heuristica
+ * @param {Object} req
+ * @param {Object} res
+ */
+
+ export const getHeuristic = async (req, res) => {
+    try {   
+        const result = await getHeuristicId(req.body.id)
+        res.send(result)
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+/**
+ * @function updateHeuristic
+ * @description Actualizar información de una heuristica
+ * @param {Object} req
+ * @param {Object} res
+ */
+
+ export const updateHeuristic = async (req, res) => {
+    try {   
+        const result = await updateHeuristicData(req.body)
+        res.send(result)
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+/**
+ * @function gettAllHeuristics
+ * @description Actualizar información de una heuristica
+ * @param {Object} req
+ * @param {Object} res
+ */
+
+ export const allHeuristics = async (req, res) => {
+    try {   
+        const result = await getHeuristics()
         res.send(result)
     } catch (error) {
         console.log(error)
