@@ -40,8 +40,8 @@ export const updateHeuristic = async (data) => {
         const query = { uuid: data.id }
         const result = await users.updateOne(query, {
             $set: {
-                partidas_ganadas: data.partidas_ganadas,
-                partidas_perdidas: data.partidas_perdidas
+                partidasganadas: data.partidasganadas,
+                partidasjugadas: data.partidasjugadas
             }
         })
         return result
