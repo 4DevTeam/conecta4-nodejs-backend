@@ -17,12 +17,12 @@ export const createHeuristic = async (data) => {
 
 //Obtener una heuristica con su id
 
-export const getHeuristic = async (id) => {
+export const getHeuristic = async (name) => {
     try {
         await client.connect()
         const database = client.db('conecta4')
         const heu = database.collection('heuristics')
-        const query = { uuid: id }
+        const query = { name: name }
         const res = await heu.find(query).toArray()
         return res
     } catch (error) {
@@ -37,7 +37,7 @@ export const updateHeuristic = async (data) => {
         await client.connect()
         const database = client.db('conecta4')
         const users = database.collection('heuristics')
-        const query = { uuid: data.id }
+        const query = { name: data.name }
         const result = await users.updateOne(query, {
             $set: {
                 partidasganadas: data.partidasganadas,
@@ -55,7 +55,6 @@ export const updateHeuristic = async (data) => {
 //Obtener todas las heuristicas
 
 export const gettAllHeuristics = async () => {
-    console.log('bandera')
     try {
         await client.connect()
         const database = client.db('conecta4')

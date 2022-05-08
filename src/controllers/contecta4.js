@@ -107,7 +107,7 @@ export const updateUser = async (req, res) => {
 
  export const getHeuristic = async (req, res) => {
     try {   
-        const result = await getHeuristicId(req.body.id)
+        const result = await getHeuristicId(req.body.name)
         res.send(result)
     } catch (error) {
         console.log(error)

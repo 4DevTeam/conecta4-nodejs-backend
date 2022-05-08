@@ -12,8 +12,8 @@ export async function postHeuristic(data) {
     return heuristic.uuid
 }
 
-export async function getHeuristicId(id) {
-    const res = await getHeuristic(id)
+export async function getHeuristicId(name) {
+    const res = await getHeuristic(name)
     return res
 }
 
