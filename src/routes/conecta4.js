@@ -1,6 +1,5 @@
 //the 'require' is instanced to be able to use it with import
 import { createRequire } from 'module'
-import { postHeuristic } from '../conecta4/heuristics.js'
 const require = createRequire(import.meta.url)
 const router = require('express').Router()
 

@@ -2,12 +2,12 @@ import client from './index.js'
 
 //Obtener un usuario con su id
 
-export const userGet = async (id) => {
+export const userGet = async (name) => {
     try {
         await client.connect()
         const database = client.db('conecta4')
         const users = database.collection('users')
-        const query = { uuid: id }
+        const query = { name: name }
         const result = await users.find(query).toArray()
         return result
     } catch (error) {

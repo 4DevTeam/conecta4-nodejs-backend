@@ -25,9 +25,8 @@ export const postUser = async (req, res) => {
  */
 
  export const getUser = async (req, res) => {
-     console.log(req.body.id)
     try {   
-        const result = await getUserId(req.body.id)
+        const result = await getUserId(req.body.name)
         res.send(result)
     } catch (error) {
         console.log(error)

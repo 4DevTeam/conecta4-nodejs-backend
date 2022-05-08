@@ -6,7 +6,7 @@ export async function createUser(userData) {
     const user = {
         uuid: uuidv4(),
         name: userData.name,
-        wins: userData.wins
+        wins: parseInt(userData.wins)
     }
 
     const res = await userPost(user)
@@ -14,8 +14,8 @@ export async function createUser(userData) {
     return user.uuid
 }
 
-export async function getUserId (id) {
-    const res = await userGet(id)
+export async function getUserId (name) {
+    const res = await userGet(name)
     return res
 }
 

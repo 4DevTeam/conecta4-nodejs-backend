@@ -5,8 +5,8 @@ export async function postHeuristic(data) {
     const heuristic = {
         uuid: uuidv4(),
         name: data.name,
-        partidas_ganadas: data.partidas_ganadas ? data.partidas_ganadas : 0,
-        partidas_perdidas: data.partidas_perdidas ? data.partidas_perdidas : 0,
+        partidasganadas: data.partidasganadas ? data.partidasganadas : 0,
+        partidasperdidas: data.partidasperdidas ? data.partidasperdidas : 0,
     }
     const res = await createHeuristic(heuristic)
     return heuristic.uuid
