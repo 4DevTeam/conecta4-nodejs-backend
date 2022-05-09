@@ -11,10 +11,10 @@ router.get('/', (req, res) => {
 })
 
 //Create user
-router.post('/user', postUser)
+router.post('/create-user', postUser)
 
 //Get User
-router.get('/user', getUser)
+router.post('/user', getUser)
 
 //Update user
 router.put('/user', updateUser)
@@ -26,10 +26,10 @@ router.get('/users', getAllUsers)
 router.get('/users-filter', filterUsers)
 
 //Create heuristic
-router.post('/heuristic', createHeuristic)
+router.post('/create-heuristic', createHeuristic)
 
 //Get heuristic
-router.get('/heuristic', getHeuristic)
+router.post('/heuristic', getHeuristic)
 
 //Update heuristic
 router.put('/heuristic', updateHeuristic)
